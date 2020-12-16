@@ -19,9 +19,9 @@ class HeadlineRepo constructor(
         private val articleDao :ArticleDao,
         private val articleResponseMapper: ArticleResponseMapper,
         private val articleCacheMapper :ArticleCacheMapper
-):StateRepository(){
+):StateRepository(),IHeadlineRepo{
 
-    suspend fun getHeadlineNewsRemote() : TopHeadlineResponse{
+    override suspend fun getHeadlineNewsRemote() : TopHeadlineResponse{
         Log.d(HeadlineRepo::class.java.simpleName,"get headline remote ${Gson().toJsonTree(service.getTopHeadlines().body())}")
 
         return safeApiRequest {
@@ -34,7 +34,7 @@ class HeadlineRepo constructor(
         }
     }
 
-    suspend fun getHeadlineNewsLocal() :List<Article>{
+    override suspend fun getHeadlineNewsLocal() :List<Article>{
         Log.d(HeadlineRepo::class.java.simpleName,"get headline local")
         val result = articleDao.loadArticle()
         return result.map { articleCacheMapper.mapFromEntity(it) }
