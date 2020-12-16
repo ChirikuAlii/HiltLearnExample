@@ -8,23 +8,23 @@ import id.chirikualii.hiltlearnexample.utils.EntityMapper
 data class ArticleResponse(
 
         @SerializedName("author")
-        var author: String = "",
+        var author: String?,
 
         @SerializedName("content")
-        var content: Any = Any(),
+        var content: String?,
 
         @SerializedName("description")
-        var description: String = "",
+        var description: String?,
 
-        @SerializedName("articles")
-        var publishedAt: String = "",
+        @SerializedName("publishedAt")
+        var publishedAt: String?,
 
         @SerializedName("title")
-        var title: String = "",
+        var title: String?,
 
         @SerializedName("url")
-        var url: String = "",
+        var url: String?,
 
         @SerializedName("urlToImage")
-        var urlToImage: String = ""
+        var urlToImage: String?
 )

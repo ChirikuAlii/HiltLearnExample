@@ -8,27 +8,25 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "article")
 data class ArticleCacheEntity(
 
-        @PrimaryKey(autoGenerate = true)
-        var id:Int,
-
         @ColumnInfo(name = "author")
-        var author: String = "",
+        var author: String?,
 
         @ColumnInfo(name = "content")
-        var content: String,
+        var content: String?,
 
         @ColumnInfo(name = "description")
-        var description: String = "",
+        var description: String?,
 
+        @PrimaryKey
         @ColumnInfo(name = "publishedAt")
-        var publishedAt: String = "",
+        var publishedAt: String,
 
         @ColumnInfo(name = "title")
-        var title: String = "",
+        var title: String?,
 
         @ColumnInfo(name = "url")
-        var url: String = "",
+        var url: String?,
 
         @ColumnInfo(name = "urlToImage")
-        var urlToImage: String = ""
+        var urlToImage: String?
 )
